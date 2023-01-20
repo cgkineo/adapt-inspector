@@ -2,9 +2,11 @@
 	"name": "adapt-inspector",
 	"version": "0.6.5",
 	"framework": ">=2.0.16",
-	"displayName": "Inspector",
+	"homepage": "https://github.com/cgkineo/adapt-inspector",
+	"bugs": "https://github.com/cgkineo/adapt-inspector/issues",
 	"extension": "inspector",
 	"targetAttribute": "_inspector",
+	"displayName": "Inspector",
 	"description": "An extension to inspect details of elements",
 	"main": "/js/adapt-inspector.js",
 	"keywords": [
@@ -15,6 +17,5 @@
 		"Tom Greenfield",
 		"Daryl Hedley"
 	],
-	"license": "GPL-3.0",
-	"homepage": "https://github.com/tomgreenfield/adapt-inspector"
+	"license": "GPL-3.0"
 }
