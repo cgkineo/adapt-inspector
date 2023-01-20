@@ -17,7 +17,8 @@
                   "type": "boolean",
                   "default": false,
                   "title": "Enable Inspector",
-                  "inputType": "Checkbox"
+                  "inputType": "Checkbox",
+                  "help": "Adds visible element IDs on hover. Also useful for Kineo employees with internal access to file issues in TRAC."
                 },
                 "_trac": {
                   "type": "object",
@@ -34,7 +35,8 @@
                       "default": "",
                       "title": "URL",
                       "inputType": "Text",
-                      "help": "Enter the URL of the Trac instance"
+                      "help": "Enter the URL of the Trac instance",
+                      "default": "https://XX.trac.kineodev.com/internal/XX-XXXX-XXXXX"
                     },
                     "_params": {
                       "type": "object",
