@@ -1,6 +1,6 @@
 {
   "name": "adapt-inspector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "framework": ">=2.0.16",
   "displayName": "Inspector",
   "extension": "inspector",
@@ -16,8 +16,8 @@
     "Daryl Hedley"
   ],
   "license": "GPL-3.0",
-	"homepage": "https://github.com/cgkineo/adapt-inspector",
-	"bugs": "https://github.com/cgkineo/adapt-inspector/issues",
+  "homepage": "https://github.com/cgkineo/adapt-inspector",
+  "bugs": "https://github.com/cgkineo/adapt-inspector/issues",
   "private": true,
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^9.0.2",
