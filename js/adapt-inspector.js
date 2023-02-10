@@ -135,7 +135,7 @@ define([ 'core/js/adapt' ], function(Adapt) {
       let tracUrl = config._url + '/newticket?';
 
       for (const key in params) {
-        if (!Object.prototype.hasOwnProperty.call(key)) continue;
+        if (!Object.prototype.hasOwnProperty.call(params, key)) continue;
 
         const value = $div.html(Handlebars.compile(params[key])(data)).text();
 
