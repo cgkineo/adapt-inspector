@@ -16,7 +16,8 @@
     "Daryl Hedley"
   ],
   "license": "GPL-3.0",
-  "homepage": "https://github.com/tomgreenfield/adapt-inspector",
+	"homepage": "https://github.com/cgkineo/adapt-inspector",
+	"bugs": "https://github.com/cgkineo/adapt-inspector/issues",
   "private": true,
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^9.0.2",
