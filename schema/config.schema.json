@@ -29,6 +29,11 @@
                   "title": "Link Inspector to Trac",
                   "default": false
                 },
+                "_disableOnTouch": {
+                  "type": "boolean",
+                  "title": "Disable Inspector on touch devices",
+                  "default": true
+                },
                 "_url": {
                   "type": "string",
                   "title": "URL",
