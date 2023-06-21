@@ -36,7 +36,7 @@ An extension to inspect details of elements.
 		<td><code>false</code></td>
 	</tr>
 	<tr>
-		<td colspan="2"><code>_disableOnTouch</code></td>
+		<td colspan="2"><code>_isDisabledOnTouch</code></td>
 		<td>Boolean</td>
 		<td>Disable Inspector on touch devices</td>
 		<td><code>true</code></td>

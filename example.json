@@ -1,6 +1,6 @@
 "_inspector": {
 	"_isEnabled": true,
-	"_disableOnTouch": true,
+	"_isDisabledOnTouch": true,
 	"_trac": {
 		"_isEnabled": false,
 		"_url": "",

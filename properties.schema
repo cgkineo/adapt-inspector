@@ -30,7 +30,7 @@
                       "title": "Link Inspector to Trac",
                       "inputType": "Checkbox"
                     },
-                    "_disableOnTouch": {
+                    "_isDisabledOnTouch": {
                       "type": "boolean",
                       "default": true,
                       "title": "Disable Inspector on touch devices",
