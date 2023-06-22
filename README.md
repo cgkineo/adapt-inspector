@@ -7,7 +7,7 @@ An extension to inspect details of elements.
 * Add the following to `config.json`:
 ```json
 "_inspector": {
-	"_isEnabled": true
+  "_isEnabled": true
 }
 ```
 * Optionally, reference the [example JSON](example.json) to make Inspector link to a specific [Trac](https://trac.edgewall.org) or to disable Inspector on touch devices.
