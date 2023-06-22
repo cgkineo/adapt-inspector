@@ -10,7 +10,7 @@ An extension to inspect details of elements.
 	"_isEnabled": true
 }
 ```
-* Optionally, reference the [example JSON](example.json) to make Inspector link to a specific [Trac](https://trac.edgewall.org).
+* Optionally, reference the [example JSON](example.json) to make Inspector link to a specific [Trac](https://trac.edgewall.org) or to disable Inspector on touch devices.
 * With [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run `adapt install inspector`. Alternatively, download the ZIP and extract into the src > extensions directory.
 * Run an appropriate Grunt task.
 
