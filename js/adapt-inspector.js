@@ -1,4 +1,7 @@
-define([ 'core/js/adapt' ], function(Adapt) {
+define([
+  'core/js/adapt',
+  'core/js/device'
+], function(Adapt, device) {
 
   const InspectorView = Backbone.View.extend({
 
@@ -7,6 +10,9 @@ define([ 'core/js/adapt' ], function(Adapt) {
     ids: [],
 
     initialize: function() {
+      const config = Adapt.config.get('_inspector');
+      if (device.touch && config._isDisabledOnTouch) return;
+
       this.listenTo(Adapt, {
         'inspector:id': this.pushId,
         'inspector:hover': this.setVisibility,

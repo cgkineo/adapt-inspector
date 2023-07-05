@@ -20,6 +20,12 @@
                   "inputType": "Checkbox",
                   "help": "Adds visible element IDs on hover. Also useful for Kineo employees with internal access to file issues in TRAC."
                 },
+                "_isDisabledOnTouch": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Disable Inspector on touch devices",
+                  "inputType": "Checkbox"
+                },
                 "_trac": {
                   "type": "object",
                   "title": "Trac",

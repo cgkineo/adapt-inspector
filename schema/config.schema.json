@@ -19,6 +19,11 @@
               "description": "Adds visible element IDs on hover. Also useful for Kineo employees with internal access to file issues in TRAC.",
               "default": false
             },
+            "_isDisabledOnTouch": {
+              "type": "boolean",
+              "title": "Disable Inspector on touch devices",
+              "default": true
+            },
             "_trac": {
               "type": "object",
               "title": "Trac",
