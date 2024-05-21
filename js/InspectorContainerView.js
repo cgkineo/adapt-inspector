@@ -49,9 +49,9 @@ class InspectorContainerView extends Backbone.View {
 
     event.originalEvent.stopInspectorPropagation = true;
 
-    if (!$(event.target).is('[class*=inspector-]')) {
-      Adapt.trigger('inspector:touch', this.$el);
-    }
+    if ($(event.target).is('[class*=inspector-]')) return;
+
+    Adapt.trigger('inspector:touch', this.$el);
   }
 }
 
