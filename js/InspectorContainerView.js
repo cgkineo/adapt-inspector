@@ -4,7 +4,7 @@ class InspectorContainerView extends Backbone.View {
   initialize() {
     const id = this.model.get('_id');
 
-    this.listenTo(Adapt, 'remove', this.remove).addTracUrl(id);
+    this.listenTo(Adapt, 'remove', this.remove).addTracUrl();
     this.$el.data(this.model);
     Adapt.trigger('inspector:id', id);
   }
@@ -17,7 +17,7 @@ class InspectorContainerView extends Backbone.View {
     };
   }
 
-  addTracUrl(id) {
+  addTracUrl() {
     const config = Adapt.config.get('_inspector')._trac;
     if (!config || !config._isEnabled) return;
 
