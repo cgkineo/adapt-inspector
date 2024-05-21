@@ -40,8 +40,9 @@ class InspectorView extends Backbone.View {
   setVisibility() {
     if (this.$el.is(':hover')) return;
 
-    for (let i = this.ids.length - 1; i >= 0; --i) {
-      const $hovered = $(`[data-adapt-id="${this.ids[i]}"]:hover`);
+    const reversedIds = this.ids.toReversed();
+    for (const id of reversedIds) {
+      const $hovered = $(`[data-adapt-id="${id}"]:hover`);
 
       if ($hovered.length) return this.updateInspector($hovered);
     }
