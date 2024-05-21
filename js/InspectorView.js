@@ -82,20 +82,20 @@ class InspectorView extends Backbone.View {
   }
 
   addOverlappedElements($hovered) {
-    const checkOverlap = function() {
-      const $element = $(this);
-      const areOffsetsEqual = _.isEqual($element.offset(), $hovered.offset());
-      const areWidthsEqual = $element.width() === $hovered.width();
-      const isOverlapped = $element.height() && areOffsetsEqual && areWidthsEqual;
-
-      if (isOverlapped) $hovered = $hovered.add($element);
-    };
-
-    for (let i = this.ids.length - 1; i >= 0; --i) {
-      $(`[data-adapt-id="${this.ids[i]}"]`).each(checkOverlap);
-    };
+    this.ids.forEach((id) => {
+      const $element = $(`[data-adapt-id="${id}"]`);
+      this.checkOverlap($element, $hovered);
+    });
 
     return $hovered;
+  }
+
+  checkOverlap($element, $hovered) {
+    const areOffsetsEqual = _.isEqual($element.offset(), $hovered.offset());
+    const areWidthsEqual = $element.width() === $hovered.width();
+    const isOverlapped = $element.height() && areOffsetsEqual && areWidthsEqual;
+
+    if (isOverlapped) $hovered = $hovered.add($element);
   }
 
   onResize() {
