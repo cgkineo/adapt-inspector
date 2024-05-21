@@ -16,7 +16,7 @@ class InspectorView extends Backbone.View {
     const config = Adapt.config.get('_inspector');
     if (device.touch && config._isDisabledOnTouch) return;
 
-    // !! BIND all event callbacks? onLeave, etc.
+    _.bindAll(this, 'onLeave', 'pushId', 'setVisibility', 'updateInspector', 'onResize', 'remove');
 
     this.listenTo(Adapt, {
       'inspector:id': this.pushId,
