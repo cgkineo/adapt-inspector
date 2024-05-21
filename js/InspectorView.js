@@ -41,7 +41,7 @@ class InspectorView extends Backbone.View {
     if (this.$el.is(':hover')) return;
 
     for (let i = this.ids.length - 1; i >= 0; --i) {
-      const $hovered = $("[data-adapt-id='" + this.ids[i] + "']:hover");
+      const $hovered = $(`[data-adapt-id="${this.ids[i]}"]:hover`);
 
       if ($hovered.length) return this.updateInspector($hovered);
     }
@@ -52,7 +52,6 @@ class InspectorView extends Backbone.View {
 
   updateInspector($hovered) {
     const $previous = $('.inspector-visible');
-
     if ($hovered.is($previous.last())) return;
 
     const data = [];
@@ -63,7 +62,6 @@ class InspectorView extends Backbone.View {
     this.addOverlappedElements($hovered).each(function() {
       const $element = $(this);
       const attributes = $element.data().attributes;
-
       if (!attributes) return;
 
       data.push(attributes);
@@ -86,22 +84,22 @@ class InspectorView extends Backbone.View {
   addOverlappedElements($hovered) {
     const checkOverlap = function() {
       const $element = $(this);
-
-      const isOverlapped = $element.height() && _.isEqual($element.offset(), $hovered.offset()) && $element.width() === $hovered.width();
+      const areOffsetsEqual = _.isEqual($element.offset(), $hovered.offset());
+      const areWidthsEqual = $element.width() === $hovered.width();
+      const isOverlapped = $element.height() && areOffsetsEqual && areWidthsEqual;
 
       if (isOverlapped) $hovered = $hovered.add($element);
     };
 
     for (let i = this.ids.length - 1; i >= 0; --i) {
-      $("[data-adapt-id='" + this.ids[i] + "']").each(checkOverlap);
-    }
+      $(`[data-adapt-id="${this.ids[i]}"]`).each(checkOverlap);
+    };
 
     return $hovered;
   }
 
   onResize() {
     const $hovered = $('.inspector-visible');
-
     if (!$hovered.length) return;
 
     $hovered.removeClass('inspector-visible');

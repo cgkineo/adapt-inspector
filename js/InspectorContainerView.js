@@ -19,7 +19,6 @@ class InspectorContainerView extends Backbone.View {
 
   addTracUrl(id) {
     const config = Adapt.config.get('_inspector')._trac;
-
     if (!config || !config._isEnabled) return;
 
     const params = config._params || {
@@ -28,21 +27,21 @@ class InspectorContainerView extends Backbone.View {
 
     const $div = $('<div>');
     const data = this.model.toJSON();
-    let tracUrl = config._url + '/newticket?';
+    let tracUrl = `${config._url}/newticket?`;
 
     for (const key in params) {
       if (!Object.prototype.hasOwnProperty.call(params, key)) continue;
 
       const value = $div.html(Handlebars.compile(params[key])(data)).text();
 
-      tracUrl += '&' + key + '=' + encodeURIComponent(value);
+      tracUrl += `&${key}=${encodeURIComponent(value)}`;
     }
 
     this.model.set('_tracUrl', tracUrl);
   }
 
   onHover() {
-    _.defer(function() { Adapt.trigger('inspector:hover'); });
+    _.defer(() => Adapt.trigger('inspector:hover'));
   }
 
   onTouch(event) {
