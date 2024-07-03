@@ -1,6 +1,6 @@
 # Inspector
 
-An extension to inspect details of elements.
+**Inspector** is an extension to inspect the details of Adapt elements.
 
 ## Installation
 
@@ -67,3 +67,14 @@ An extension to inspect details of elements.
 		<td><code>[ "menu", "menuItem", "page", "article", "block", "component" ]</code></td>
 	</tr>
 </table>
+
+## Limitations
+
+No known limitations.
+
+----------------------------
+
+**Author / maintainer:**  CGKineo<br>
+**Accessibility support:**  WAI AA<br>
+**RTL support:**  Yes<br>
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, Safari for macOS/iOS/iPadOS, Opera<br>
