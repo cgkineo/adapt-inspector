@@ -1,5 +1,8 @@
 import Adapt from 'core/js/adapt';
 import device from 'core/js/device';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { templates } from 'core/js/reactHelpers';
 
 class InspectorView extends Backbone.View {
   className() {
@@ -24,14 +27,20 @@ class InspectorView extends Backbone.View {
       'inspector:touch': this.updateInspector,
       'device:resize': this.onResize,
       remove: this.remove
-    }).render();
+    });
 
+    this.render();
     this.ids = [];
   }
 
   render() {
-    $('#wrapper').append(this.$el);
-  };
+    const data = {
+      ...this,
+      model: this.model.toJSON(),
+      _tracUrl: this.model.get('_trac')?._url
+    };
+    ReactDOM.render(<templates.inspector {...data} />, this.el);
+  }
 
   pushId(id) {
     this.ids.push(id);
@@ -48,7 +57,7 @@ class InspectorView extends Backbone.View {
     }
 
     $('.inspector-visible').removeClass('inspector-visible');
-    this.$el.hide();
+    // this.$el.hide(); // ! TESTING - Do not keep commented out
   }
 
   updateInspector($hovered) {
@@ -56,7 +65,6 @@ class InspectorView extends Backbone.View {
     if ($hovered.is($previous.last())) return;
 
     const data = [];
-    const template = Handlebars.templates.inspector;
 
     $previous.removeClass('inspector-visible');
 
@@ -69,8 +77,13 @@ class InspectorView extends Backbone.View {
       $element.addClass('inspector-visible');
     });
 
-    this.$el.html(template(data)).removeAttr('style').removeClass('inline');
+    // ReactDOM.render(<templates.inspector {...data} />, this.el);
+    this.$el.removeAttr('style').removeClass('inline');
 
+    this.updateOffset($hovered);
+  }
+
+  updateOffset($hovered) {
     const offset = $hovered.offset();
     const offsetTop = offset.top;
     const targetTop = offsetTop - this.$el.outerHeight();
@@ -109,6 +122,10 @@ class InspectorView extends Backbone.View {
 
   onLeave() {
     _.defer(this.setVisibility.bind(this));
+  }
+
+  static get template() {
+    return 'inspector.jsx';
   }
 };
 

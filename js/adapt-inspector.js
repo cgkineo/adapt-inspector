@@ -27,11 +27,16 @@ class Inspector extends Backbone.Controller {
 
     Handlebars.registerHelper('inspector_location', this.getLocationString);
 
+    const model = new Backbone.Model(config);
     Adapt.on('router:location', () => {
-      new InspectorView();
+      const inspectorView = new InspectorView({ model });
+      $('#wrapper').append(inspectorView.$el);
     }).on(eventList.join(' '), (view) => {
       new InspectorContainerView({ el: view.$el, model: view.model });
     });
+
+    // console.log(this.$el);
+    // $('#wrapper').append(this.$el);
   }
 }
 
