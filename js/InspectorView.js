@@ -19,7 +19,7 @@ class InspectorView extends Backbone.View {
     const config = Adapt.config.get('_inspector');
     if (device.touch && config._isDisabledOnTouch) return;
 
-    _.bindAll(this, 'onLeave', 'pushId', 'setVisibility', 'updateInspector', 'onResize', 'remove');
+    _.bindAll(this, 'onLeave', 'onClick', 'pushId', 'setVisibility', 'updateInspector', 'onResize', 'remove');
 
     this.listenTo(Adapt, {
       'inspector:id': this.pushId,
@@ -37,13 +37,15 @@ class InspectorView extends Backbone.View {
     const data = {
       ...this,
       model: this.model.toJSON(),
-      _tracUrl: this.model.get('_trac')?._url
+      _tracUrl: this.model.get('_trac')?._url,
+      onClick: this.onClick
     };
     ReactDOM.render(<templates.inspector {...data} />, this.el);
   }
 
   pushId(id) {
     this.ids.push(id);
+    // console.log(this.ids);
   }
 
   setVisibility() {
@@ -57,7 +59,7 @@ class InspectorView extends Backbone.View {
     }
 
     $('.inspector-visible').removeClass('inspector-visible');
-    // this.$el.hide(); // ! TESTING - Do not keep commented out
+    this.$el.hide();
   }
 
   updateInspector($hovered) {
@@ -122,6 +124,12 @@ class InspectorView extends Backbone.View {
 
   onLeave() {
     _.defer(this.setVisibility.bind(this));
+  }
+
+  onClick() {
+    if (!this.model.get('_trac')?._url) return;
+    const url = this.model.get('_trac')._url;
+    window.open(url, '_blank');
   }
 
   static get template() {
