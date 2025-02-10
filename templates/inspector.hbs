@@ -4,7 +4,8 @@
 {{/if}}{{#if _classes}}Classes: {{_classes}}
 {{/if}}{{#if _layout}}Layout: {{_layout}}
 {{/if}}Title: {{#if title}}{{title}}{{else}}<none>{{/if}}
-Optional: {{#if _isOptional}}Yes{{else}}No{{/if}}{{#if _selectable}}
+Optional: {{#if _isOptional}}Yes{{else}}No{{/if}}{{#if _assessment}}{{#if _assessment._quizBankID}}
+Question Bank: {{_assessment._quizBankID}}{{/if}}{{/if}}{{#if _selectable}}
 Correct:{{#if _children.models}}{{#each _children.models}}{{#if attributes._shouldBeSelected}} {{numbers @index}}{{/if}}{{/each}}{{else}}{{#each _items}}{{#if _shouldBeSelected}} {{numbers @index}}{{/if}}{{/each}}{{/if}}{{/if}}{{#if_value_equals _component "matching"}}
 Correct:{{#each _items}}{{#if ../_items.[1]}}
 {{numbers @index}}.{{/if}}{{#each _options}}{{#if _isCorrect}} {{text}}{{/if}}{{/each}}{{/each}}{{/if_value_equals}}{{#if_value_equals _component "slider"}}
