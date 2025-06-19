@@ -14,7 +14,7 @@ describe('Inspector - v1.0.1 to v1.0.2', async () => {
     return true;
   });
   checkContent('Inspector - check course _inspector attribute', async content => {
-    if (courseInspector === undefined) throw new Error('Inspector - course _inspector invalid');
+    if (!_.has(course, '_inspector')) throw new Error('Inspector - course _inspector invalid');
     return true;
   });
   checkContent('Inspector - check _isDisabledOnTouch value', async content => {
